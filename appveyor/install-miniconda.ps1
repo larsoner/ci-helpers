@@ -260,6 +260,8 @@ Remove-Variable CONDA_CHANNELS
 rm env:CONDA_CHANNELS
 
 # Install the build and runtime dependencies of the project.
+Write-Host "Cleaning with conda clean-iy"
+conda clean -iy
 retry_on_known_error conda install $QUIET conda=$env:CONDA_VERSION
 checkLastExitCode
 
